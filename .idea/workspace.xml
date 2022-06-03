@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b1dd99bf-8f20-4a16-b954-3ed4d1939163" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/font1.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/text.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Новый текстовый документ.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +23,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "last_opened_file_path": "C:/Users/mailr/PycharmProjects/LyricsVideo",
+    "last_opened_file_path": "C:/Users/mailr/PycharmProjects/Test",
     "settings.editor.selected.configurable": "terminal"
   }
 }]]></component>

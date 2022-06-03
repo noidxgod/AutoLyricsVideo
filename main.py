@@ -40,9 +40,13 @@ for i in range(0,len(times)):
 nameoutputfile = str(input("Введите имя выходного файла: "))+".mp4"
 writer = cv2.VideoWriter(nameoutputfile, cv2.VideoWriter_fourcc(*"mp4v"), 24,(1920,1080))#MJPG
 time = int(input("Введите время в секундах: "))*24
+#times.append(time)
 times.append(time)
+print(times)
+#
 font = cv2.FONT_HERSHEY_COMPLEX
 j = 0
+print(times[len(times)-2]*24+3*24)
 font_size = int(input("Введите размер шрифта: "))
 x = int(input("Введите расположение по ширине: "))
 y = int(input("Введите расположение по высоте: "))
@@ -50,7 +54,9 @@ for frame in range(0,time):
     print('\r', 'Процесс', str(frame * 100 // time), '%', end='')
     if (frame==times[j+1]*24):
         j += 1
-    if (frame>=(times[j]*24) and frame < (times[j+1]*24)):
+    if (frame>=(times[len(times)-2]*24+3*24)):
+        writer.write(img1)
+    elif (frame>=(times[j]*24)):
         shutil.copyfile(first_png_file, 'buffer1.png')
         shutil.copyfile(first_png_file, 'buffer2.png')
         try:
@@ -68,7 +74,8 @@ for frame in range(0,time):
         draw.text((x, y), lyrics[j], font=font, anchor="ms", align="left")
         cv2_im_processed = cv2.cvtColor(np.array(pil_im), cv2.COLOR_RGB2BGR)
         writer.write(cv2_im_processed)
-    if (frame<(times[j]*24)):
+        # or frame > times[len(times)-2]+3*24 (frame<(times[j]*24))
+    else:
         writer.write(img1)
 print('\r', str(100), '%', end='')
 writer.release()
