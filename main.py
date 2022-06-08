@@ -1,5 +1,6 @@
 from PIL import ImageFont, ImageDraw
 from PIL import Image as Img
+import os
 import cv2
 import moviepy.editor as mp
 import numpy as np
@@ -15,8 +16,8 @@ from tkinter import messagebox as mb
 
 root = tk.Tk()
 root.title('Lyrics')
-root.minsize(700, 330)
-root.maxsize(1500, 330)
+root.minsize(700, 300)
+root.maxsize(1500, 300)
 root.geometry("150x100") 
 #root.rowconfigure([0,1,2,3,4,5,6], minsize=25,weight=1)
 #root.columnconfigure([0,1],minsize=200,weight=1)
@@ -38,7 +39,7 @@ def btn_lyrics():
         label_lyrics.after(1000, label_lyrics.destroy())
     except:
         print()
-    text_lyrics = fd.askopenfilename(filetypes=(("TXT files", "*.txt")),title='Открыть файл с текстом песни(txt)',initialdir='/')
+    text_lyrics = fd.askopenfilename(filetypes=[("TXT files", ".txt")],title='Открыть файл с текстом песни(txt)',initialdir='/')
     label_lyrics = Label(root, text=text_lyrics)    
     label_lyrics.grid(column=1, row=1,sticky=W,ipadx=10,ipady=2) 
 def btn_music():
@@ -48,7 +49,7 @@ def btn_music():
         label_music.after(1000, label_music.destroy())
     except:
         print()
-    text_music = fd.askopenfilename(filetypes=(("MP3 files", "*.mp3")),title='Открыть файл с музыкой(mp3)',initialdir='/')
+    text_music = fd.askopenfilename(filetypes=[("MP3 files", ".mp3")],title='Открыть файл с музыкой(mp3)',initialdir='/')
     label_music = Label(root, text=text_music)    
     label_music.grid(column=1, row=2,sticky=W,ipadx=10,ipady=2) 
 def btn_font():
@@ -164,6 +165,8 @@ def start():
                         writer.write(img1)
                 pb['value'] = 100
                 writer.release()
+                os.remove(text_output_folder + '/' + 'buffer1.png')
+                os.remove(text_output_folder + '/' + 'buffer2.png')
                 if 'text_music'  in globals():
                     loading("Добавление музыки в видео..")
                     if (text_music != ''):
