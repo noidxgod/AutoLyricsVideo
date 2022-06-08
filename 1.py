@@ -1,3 +1,8 @@
-import pyglet
-song = pyglet.media.load('test.mp3')
-print(int(song.duration))
+
+def abc():
+    global x
+    x = 2
+x = 1
+print(x)
+abc()
+print(x)
