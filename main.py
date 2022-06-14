@@ -9,7 +9,6 @@ import math
 import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog as fd
-import pyglet
 from tkinter import *
 from tkinter.ttk import Progressbar  
 from tkinter import messagebox as mb
@@ -29,7 +28,7 @@ def btn_background():
         label_background.after(1000, label_background.destroy())
     except:
         print()
-    text_background = fd.askopenfilename(filetypes=[("PNG, JPG", ".png .jpg")],title='Открыть файл фона(png,jpg)',initialdir='/')
+    text_background = fd.askopenfilename(filetypes=[("PNG", ".png")],title='Открыть файл фона(png,jpg)',initialdir='/')
     label_background  = Label(root, text=text_background)    
     label_background.grid(column=1, row=0,sticky=W,ipadx=10,ipady=2) 
 def btn_lyrics():
@@ -148,8 +147,8 @@ def start():
                     if (frame>=(times[len(times)-2]*24+3*24)):
                         writer.write(img1)
                     elif (frame>=(times[j]*24)):
-                        shutil.copyfile(text_background, 'buffer1.png')
-                        shutil.copyfile(text_background, 'buffer2.png')
+                        shutil.copyfile(text_background, text_output_folder + '/' + 'buffer1.png')
+                        shutil.copyfile(text_background, text_output_folder + '/' + 'buffer2.png')
                         try:
                             img2 = cv2.imread('buffer1.png')
                         except:
